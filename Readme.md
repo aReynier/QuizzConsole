@@ -1,10 +1,10 @@
 # Récupérer le projet
 
-Bienvenue, pour récupérer le projet il suffit de ....
+Bienvenue, pour récupérer le projet il suffit de copier le dépôt git.
 
 # Lancer le projet 
 
-Pour lancer le projet ...
+Pour lancer le projet, une fois le dossier quizzconsole ouvert dans VScode, le lancer en sélectionnant le fichier Program.cs puis en cliquant sur la flèche de lancement en haut à droite de la fenêtre.
 
 # Les étapes de mon jeu de quizz :
 
