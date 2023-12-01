@@ -1,4 +1,3 @@
-using System.Linq;
 using RetrieveData;
 using ErrorHandling;
 using BackToMenu;
@@ -28,12 +27,10 @@ namespace Questions
                 for (int questionIndex = 0; questionIndex < questionProposals.Length; questionIndex++) {
                     Console.WriteLine($"{questionIndex + 1}. {questionProposals[questionIndex]}");
                 }
-
                 Console.WriteLine($"Il y a actuellement {questionProposals.Length} réponses possibles");
                 
-                var answer = Console.ReadLine ();
+                string answer = Console.ReadLine ();
                 answer = BadEntry.HandleBadEntry(answer, questionProposals.Length);
-
 
                 //Check the answer
                 if (answer == question[3]){

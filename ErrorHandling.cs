@@ -1,6 +1,3 @@
-using System.Globalization;
-using CategoriesChoices;
-
 namespace ErrorHandling
 {
     public static class BadEntry {

@@ -1,5 +1,4 @@
-using Questions;
-using Categories;
+using RandomCategory;
 using CategoriesChoices;
 using ErrorHandling;
 
@@ -17,20 +16,14 @@ namespace RootMenu
             welcomeChoice = BadEntry.HandleBadEntry(welcomeChoice,3);
 
             if (welcomeChoice == "1"){
-                Console.WriteLine($"Vous avez choisi {welcomeChoice}");
-
-                //Retrieve categories from the method
-                List<string> categoriesMethod = listCategories.RetrieveListCategories();
-                int randomCategoryInt = new Random().Next(0,categoriesMethod.Count);
-                
                 //Question loop with a random category
-                QuestionLoop.QuestionInflux(categoriesMethod[randomCategoryInt]);
-                
+                RamdomCategoryList.GenerateRandomCategory();
+ 
             }else if(welcomeChoice == "2") {
-                ChooseCategories.RetrieveCategory();
+                RetrieveCategory.ChooseCategories();
             }else if(welcomeChoice == "3") {
-            // Left the game part
-            Console.WriteLine("Au revoir");
+                // Left the game part
+                Console.WriteLine("Au revoir");
             }
         }
     }

@@ -1,12 +1,11 @@
 using Questions;
 using Categories;
-using System.Security.Cryptography.X509Certificates;
 using ErrorHandling;
 
 namespace CategoriesChoices
 {
-    public static class ChooseCategories {
-        public static void RetrieveCategory() { 
+    public static class RetrieveCategory {
+        public static void ChooseCategories() { 
             //Retrieve categories from the method
             List<string> categoriesMethod = listCategories.RetrieveListCategories();
             
@@ -16,27 +15,15 @@ namespace CategoriesChoices
 
             Console.WriteLine($"Il y a {categoriesMethod.Count} catégories");
             Console.WriteLine("Quelle catégorie choisissez-vous?");
-            //First demand
+
+            //Ask the user
             var categoryChoiceString = Console.ReadLine ();
             categoryChoiceString = BadEntry.HandleBadEntry(categoryChoiceString, categoriesMethod.Count);
 
-            if (categoryChoiceString != null) {
-                int categoryChoiceInt = int.Parse(categoryChoiceString);
-                //Watch out, errors to prevent 
-                QuestionLoop.QuestionInflux(categoriesMethod[categoryChoiceInt - 1]);
-            } 
+            //Send response according to the user choice
+            int categoryChoiceInt = int.Parse(categoryChoiceString);
+            QuestionLoop.QuestionInflux(categoriesMethod[categoryChoiceInt - 1]);
 
-            while (categoryChoiceString == null) {
-                categoryChoiceString = Console.ReadLine ();
-                categoryChoiceString = BadEntry.HandleBadEntry(categoryChoiceString, categoriesMethod.Count);
-            }
-
-            if (categoryChoiceString != null) {
-                int categoryChoiceInt = int.Parse(categoryChoiceString);
-                //Watch out, errors to prevent 
-                QuestionLoop.QuestionInflux(categoriesMethod[categoryChoiceInt - 1]);
-            }
-
-           }
+        }
     }
 }
