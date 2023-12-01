@@ -4,23 +4,27 @@ Bienvenue, pour récupérer le projet il suffit de copier le dépôt git.
 
 # Lancer le projet 
 
-Pour lancer le projet, une fois le dossier quizzconsole ouvert dans VScode, le lancer en sélectionnant le fichier Program.cs puis en cliquant sur la flèche de lancement en haut à droite de la fenêtre.
+Pour lancer le projet, une fois le dossier quizzconsole ouvert dans VScode, le lancer en cliquant sur la flèche de lancement/debug en haut à droite de la fenêtre.
 
 # Les étapes de mon jeu de quizz :
 
-Pour se faciliter la vie, on a au début une seule catégorie. Chaque titre et sous titre de ce readme.md doit être transformé en méthode.
+## Fichier initial
+Le début du code se trouve dans le fichier programme, il appelle deux méthodes liées à notre jeux: l'accueil et le choix initial
 
-## Ecrire les questions en "dur" dans le code
+## Message d'accueil
+La méthode PrintMessage de la classe WelcomeMessages sité dans le fichier Welcome accueille le joueur et lui explique le fonctionnement du quizz.à la suite de ces messages se trouve la méthode du menu racine.
 
-3 questions récupérées en "dur" dans un premier temps
- - ``` var questionUne = "Et sinon ça va ?"```
- - ``` var reponseUne = "Ouais et toi ?"```
- - ``` var reponseDeux = "Non pas trop frère."```
- - ``` var reponseTrois = "C'est la hess."```
+## Menu racine
+La méthode MakeRootMenuChoice de la classe RootMenuChoices situé dans le fichier RootMenu comporte les choix du menu. Trois choix sont proposés:
+1. Démarrer un quizz au hasard"
+2. Choisir une catégorie"
+3. Quitter
+il est demandé à l'utilisateur de rentrer une variable qui sera stockée et comparée au moyen d'un if si il correspond à l'un des trois choix. Si l'utilisateur ne rentre pas le nombre demandé, une méthode est placée préalablement à cette conditionnelle
 
-## Depuis un fichier dans un second temps
+## Gestion des erreurs d'entrée
+Si l'entrée est différente des entrée attendues, c'est à dire si l'utilisateur rentre une entrée qui n'est pas un chiffre ou un mauvais chiffre, cette méthode bouclera avec un ensemble de while et de if tant que l'utilisateur ne rentrera pas le chiffre demandé. Cette méthode prend deux arguments d'entrée, le choix rentré en string ainsi que le nombre d'entrée attendu en int.
 
-### Récupérer la premier ligne du fichier CSV
+## Récupérer le fichier CSV
 
 Utilisation de la méthode ... pour récupérer lSéparer les champs ...
 

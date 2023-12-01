@@ -1,4 +1,7 @@
 using System.Linq;
+using RetrieveData;
+using ErrorHandling;
+using BackToMenu;
 
 namespace Questions
 {
@@ -7,11 +10,8 @@ namespace Questions
             //Player's score
             var score = 0;
             
-            //Retrieve question datas
-            string filePath = @"C:\Users\Utilisateur\Documents\formation simplon .NET\001-projet quizz\QuizzConsole\Data\QuestionsExample.csv";
-            
             //Found how to filter questions with the right category
-            string[] allTheQuestions = File.ReadAllLines(filePath);
+            string[] allTheQuestions = File.ReadAllLines(Data.GetData());
 
             string[] filteredQuestions = allTheQuestions.Where(question => question.Contains(categoryName)).ToArray();
             
@@ -22,14 +22,18 @@ namespace Questions
                 //Question isolation, put into arrays
                 //Multidimentionnal array?
                 string[] question = filteredQuestions[quizIndex].Split(";");
-                Console.WriteLine(question[0]);
                 Console.WriteLine(question[1]);
                 string[] questionProposals = question[2].Split("/");
 
                 for (int questionIndex = 0; questionIndex < questionProposals.Length; questionIndex++) {
                     Console.WriteLine($"{questionIndex + 1}. {questionProposals[questionIndex]}");
                 }
+
+                Console.WriteLine($"Il y a actuellement {questionProposals.Length} réponses possibles");
+                
                 var answer = Console.ReadLine ();
+                answer = BadEntry.HandleBadEntry(answer, questionProposals.Length);
+
 
                 //Check the answer
                 if (answer == question[3]){
@@ -46,6 +50,9 @@ namespace Questions
 
             Console.WriteLine($"Votre score final est de {score}");
             Console.WriteLine("Le quizz est terminé");
+            Console.WriteLine($"-------");
+
+            BackToMenuProposal.BackToMenuChoice();
         }
     }
 }
